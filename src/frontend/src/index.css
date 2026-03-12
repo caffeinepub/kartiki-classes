@@ -1,0 +1,121 @@
+@font-face {
+  font-family: "Bricolage Grotesque";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/assets/fonts/BricolageGrotesque-Variable.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "General Sans";
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/assets/fonts/GeneralSans-Variable.woff2") format("woff2");
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Kartiki Classes - Saffron/Orange warm palette */
+    --background: 0.97 0.008 75;
+    --foreground: 0.18 0.03 260;
+
+    --card: 0.995 0.004 80;
+    --card-foreground: 0.18 0.03 260;
+
+    --popover: 0.995 0.004 80;
+    --popover-foreground: 0.18 0.03 260;
+
+    /* Saffron orange primary */
+    --primary: 0.62 0.175 44;
+    --primary-foreground: 0.99 0 0;
+
+    /* Deep navy secondary */
+    --secondary: 0.25 0.06 255;
+    --secondary-foreground: 0.97 0.008 75;
+
+    --muted: 0.93 0.015 75;
+    --muted-foreground: 0.48 0.04 240;
+
+    /* Warm golden accent */
+    --accent: 0.82 0.12 72;
+    --accent-foreground: 0.18 0.03 260;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.99 0 0;
+
+    --border: 0.88 0.02 75;
+    --input: 0.88 0.02 75;
+    --ring: 0.62 0.175 44;
+
+    --radius: 0.75rem;
+
+    --chart-1: 0.62 0.175 44;
+    --chart-2: 0.55 0.15 255;
+    --chart-3: 0.6 0.16 160;
+    --chart-4: 0.65 0.14 320;
+    --chart-5: 0.72 0.18 90;
+
+    --sidebar: 0.25 0.06 255;
+    --sidebar-foreground: 0.97 0.008 75;
+    --sidebar-primary: 0.62 0.175 44;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.32 0.06 255;
+    --sidebar-accent-foreground: 0.97 0.008 75;
+    --sidebar-border: 0.32 0.06 255;
+    --sidebar-ring: 0.62 0.175 44;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .hero-pattern {
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 20px,
+      oklch(0.62 0.175 44 / 0.06) 20px,
+      oklch(0.62 0.175 44 / 0.06) 21px
+    );
+  }
+
+  .section-stripe {
+    background: linear-gradient(
+      135deg,
+      oklch(0.62 0.175 44) 0%,
+      oklch(0.68 0.16 52) 100%
+    );
+  }
+
+  .navy-stripe {
+    background: linear-gradient(
+      135deg,
+      oklch(0.22 0.07 260) 0%,
+      oklch(0.28 0.065 250) 100%
+    );
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+}
