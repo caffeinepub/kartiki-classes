@@ -1,6 +1,12 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { BookOpen, ChevronRight, Lock, Sparkles } from "lucide-react";
+import {
+  BookMarked,
+  BookOpen,
+  ChevronRight,
+  Lock,
+  Sparkles,
+} from "lucide-react";
 import type { Variants } from "motion/react";
 import { motion } from "motion/react";
 
@@ -172,12 +178,57 @@ export function HomePage({ onNavigate }: HomePageProps) {
           ))}
         </motion.div>
 
+        {/* Board Exam Notes Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.45, duration: 0.4 }}
+          className="mt-5"
+        >
+          <Card
+            data-ocid="home.board-notes.card"
+            className="card-hover cursor-pointer border-border/70 overflow-hidden group"
+            onClick={() => onNavigate("notes")}
+          >
+            <div className="h-2 bg-gradient-to-r from-emerald-500 to-teal-500" />
+            <CardContent className="p-5">
+              <div className="flex items-start justify-between">
+                <div className="flex items-start gap-3 flex-1">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center shrink-0">
+                    <BookMarked className="w-5 h-5 text-emerald-700" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="font-display font-bold text-lg text-foreground">
+                        बोर्ड परीक्षा नोट्स
+                      </h3>
+                      <Badge className="text-xs bg-emerald-100 text-emerald-800 border-0">
+                        FREE
+                      </Badge>
+                    </div>
+                    <p className="text-xs text-muted-foreground mb-1">
+                      Board Exam Notes · महाराष्ट्र बोर्ड
+                    </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      इतिहास और भूगोल के 2018–2025 के वारंवार येणारे प्रश्न-उत्तर (मराठी
+                      में)
+                    </p>
+                  </div>
+                </div>
+                <div className="ml-3 w-10 h-10 rounded-full bg-muted flex items-center justify-center group-hover:bg-emerald-100 transition-colors">
+                  <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-emerald-700 transition-colors" />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+
         {/* Info banner */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.4 }}
-          className="mt-6 p-4 rounded-xl bg-muted/60 border border-border/60 flex items-start gap-3"
+          transition={{ delay: 0.55, duration: 0.4 }}
+          className="mt-4 p-4 rounded-xl bg-muted/60 border border-border/60 flex items-start gap-3"
         >
           <div className="w-8 h-8 section-stripe rounded-lg flex items-center justify-center shrink-0">
             <BookOpen className="w-4 h-4 text-primary-foreground" />
@@ -188,7 +239,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             </p>
             <p className="text-xs text-muted-foreground leading-relaxed">
               8वीं, 9वीं और 10वीं कक्षा के नोट्स के लिए अपना पंजीकरण नंबर और OTP आवश्यक है।
-              सामान्य नोट्स सभी के लिए मुफ्त में उपलब्ध हैं।
+              सामान्य नोट्स और बोर्ड परीक्षा नोट्स सभी के लिए मुफ्त में उपलब्ध हैं।
             </p>
           </div>
         </motion.div>

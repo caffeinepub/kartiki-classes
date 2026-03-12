@@ -3,6 +3,7 @@ import { Header } from "@/components/Header";
 import { Toaster } from "@/components/ui/sonner";
 import { AdminPage } from "@/pages/AdminPage";
 import { HomePage } from "@/pages/HomePage";
+import { NotesPage } from "@/pages/NotesPage";
 import { OpenSectionPage } from "@/pages/OpenSectionPage";
 import { ProtectedSectionPage } from "@/pages/ProtectedSectionPage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -18,6 +19,7 @@ type PageState =
   | { page: "home" }
   | { page: "protected"; section: string }
   | { page: "open"; section: string }
+  | { page: "notes" }
   | { page: "admin" };
 
 function AppInner() {
@@ -30,6 +32,8 @@ function AppInner() {
       setNav({ page: "protected", section: params.section });
     } else if (page === "open" && params?.section) {
       setNav({ page: "open", section: params.section });
+    } else if (page === "notes") {
+      setNav({ page: "notes" });
     } else if (page === "admin") {
       setNav({ page: "admin" });
     }
@@ -48,6 +52,7 @@ function AppInner() {
       {nav.page === "open" && (
         <OpenSectionPage section={nav.section} onBack={handleBack} />
       )}
+      {nav.page === "notes" && <NotesPage onBack={handleBack} />}
       {nav.page === "admin" && <AdminPage onBack={handleBack} />}
 
       <Footer />
